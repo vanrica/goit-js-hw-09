@@ -1,0 +1,51 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(16px, 2vw, 32px);
+  margin-top: clamp(24px, 4vh, 64px);
+}
+
+/* card scales on hover */
+.gallery-item {
+  transition: transform 250ms ease, box-shadow 250ms ease;
+  transform-origin: center;
+}
+
+.gallery-link {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden; /* corners */
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;
+}
+
+/* hover */
+.gallery-item:hover,
+.gallery-item:focus-within {
+  transform: scale(1.03);
+  z-index: 2;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* overlay and blur. increased intensity = increased px*/
+.sl-overlay {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.sl-wrapper .sl-image img {
+  max-width: 92vw !important;
+  max-height: 85vh !important;
+  object-fit: contain;
+}
+
+.sl-wrapper .sl-caption {
+  color: #111 !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+}
